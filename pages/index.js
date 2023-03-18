@@ -22,6 +22,29 @@ export default function Home({ suppliers }) {
       });
   }
 
+  const Footer = () => {
+    return (
+      <footer
+        style={{
+          marginTop: "2rem",
+          padding: "1rem",
+          backgroundColor: "#f8f9fa",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ color: "#6c757d" }}>
+          &copy; A Web Application Development Project from:{" "}
+          <Link
+            href="https://github.com/LynnT-2003"
+            style={{ color: "#6c757d" }}
+          >
+            Lynn Thit Nyi Nyi
+          </Link>
+        </p>
+      </footer>
+    );
+  };
+
   return (
     <>
       <Head>
@@ -80,6 +103,7 @@ export default function Home({ suppliers }) {
           </Table>
         </div>
       </Container>
+      <Footer />
     </>
   );
 }
