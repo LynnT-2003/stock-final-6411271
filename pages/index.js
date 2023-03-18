@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
+import { Container, Table, Button, Row, Col } from "react-bootstrap";
 
 export default function Home({ suppliers }) {
-  function deletesupplier(id) {
+  function deleteSupplier(id) {
     fetch(`/api/stockFinal/suppliers/${id}`, {
       method: "DELETE",
     })
@@ -18,53 +19,64 @@ export default function Home({ suppliers }) {
       <Head>
         <title>Suppliers Management</title>
       </Head>
-      <h1>Suppliers</h1>
-      <table>
-        <thead>
-          <tr>
-            <th style={{ width: "20rem" }}>Supplier Name</th>
-            <th style={{ width: "10rem" }}>Address</th>
-            <th style={{ width: "10rem" }}>Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          {suppliers.map((supplier) => {
-            return (
-              <tr key={supplier._id}>
-                <td style={{ textAlign: "center" }}>
-                  <Link href={`/supplier/${supplier._id}`}>
-                    {supplier.name}
-                  </Link>
-                </td>
-                <td style={{ textAlign: "center" }}>{supplier.address}</td>
-                <td style={{ textAlign: "center" }}>{supplier.phone}</td>
-                <td>
-                  <>
-                    <Link href={`/supplier/update/${supplier._id}`}>
-                      Update
+      <Container>
+        <Row className="my-4">
+          <Col>
+            <h1>Suppliers List</h1>
+          </Col>
+          <Col className="text-right">
+            <Link href="/supplier">
+              <Button variant="outline-primary">+ Add Supplier</Button>
+            </Link>
+          </Col>
+        </Row>
+        <Table responsive>
+          <thead>
+            <tr>
+              <th style={{ width: "20rem" }}>Supplier Name</th>
+              <th style={{ width: "10rem" }}>Address</th>
+              <th style={{ width: "10rem" }}>Phone Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {suppliers.map((supplier) => {
+              return (
+                <tr key={supplier._id}>
+                  <td>
+                    <Link href={`/supplier/${supplier._id}`}>
+                      {supplier.name}
                     </Link>
-                    &nbsp;&nbsp;&nbsp;
-                    <button onClick={() => deletesupplier(supplier._id)}>
-                      Delete
-                    </button>
-                  </>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <hr />
-      <p style={{ margin: "0.4rem", textAlign: "left" }}>
-        <Link href="/supplier">+ Supplier</Link>
-      </p>
-
-      {/* <Link href="/">&nbsp;&nbsp;&nbsp;&nbsp; Home</Link> */}
-
-      <p></p>
+                  </td>
+                  <td>{supplier.address}</td>
+                  <td>{supplier.phone}</td>
+                  <td>
+                    <>
+                      <Link href={`/supplier/update/${supplier._id}`}>
+                        <Button variant="outline-secondary" size="sm">
+                          Update
+                        </Button>
+                      </Link>
+                      &nbsp;&nbsp;
+                      <Button
+                        variant="outline-danger"
+                        size="sm"
+                        onClick={() => deleteSupplier(supplier._id)}
+                      >
+                        Delete
+                      </Button>
+                    </>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </Container>
     </>
   );
 }
+
 export async function getServerSideProps() {
   const res = await fetch(
     `https://stock-final-6411271.vercel.app/api/stockFinal/suppliers`
