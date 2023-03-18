@@ -70,5 +70,9 @@ export async function getServerSideProps() {
     `https://stock-final-6411271.vercel.app/api/stockFinal/suppliers`
   );
   const suppliers = await res.json();
+
+  // Sort suppliers by name
+  suppliers.sort((a, b) => a.name.localeCompare(b.name));
+
   return { props: { suppliers } };
 }
