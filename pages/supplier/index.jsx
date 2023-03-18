@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Form,
+  Button,
+  Row,
+  Col,
+  Navbar,
+  Nav,
+} from "react-bootstrap";
 
 export default function AddSupplier() {
   const { register, handleSubmit } = useForm();
@@ -34,59 +42,59 @@ export default function AddSupplier() {
   };
 
   return (
-    <Container style={{ margin: "2rem", maxWidth: "50%", marginLeft: "5rem" }}>
-      {/* <Link href="/">Suppliers</Link> */}
-      <Form onSubmit={handleSubmit(saveSupplier)}>
-        <Row className="mb-4">
-          <Col>
-            <h1>New Supplier</h1>
-          </Col>
-        </Row>
-        <Form.Group controlId="supplierName">
-          <Form.Label>Supplier Name</Form.Label>
-          <Form.Control
-            {...register("name", { required: true })}
-            placeholder="John Doe"
-          />
-        </Form.Group>
+    <>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand style={{ marginLeft: "7rem" }} href="/">
+          Suppliers Management
+        </Navbar.Brand>
+      </Navbar>
+      <Container
+        style={{ margin: "2rem", maxWidth: "50%", marginLeft: "5rem" }}
+      >
+        {/* <Link href="/">Suppliers</Link> */}
+        <Form onSubmit={handleSubmit(saveSupplier)}>
+          <Row className="mb-4">
+            <Col>
+              <h1>New Supplier</h1>
+            </Col>
+          </Row>
+          <Form.Group controlId="supplierName">
+            <Form.Label>Supplier Name</Form.Label>
+            <Form.Control
+              {...register("name", { required: true })}
+              placeholder="John Doe"
+            />
+          </Form.Group>
 
-        <br />
+          <br />
 
-        <Form.Group controlId="address">
-          <Form.Label>Address</Form.Label>
-          <Form.Control
-            {...register("address", { required: true })}
-            placeholder="123 Black Clover St."
-          />
-        </Form.Group>
+          <Form.Group controlId="address">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              {...register("address", { required: true })}
+              placeholder="123 Black Clover St."
+            />
+          </Form.Group>
 
-        <br />
+          <br />
 
-        <Form.Group controlId="phone">
-          <Form.Label>Phone Number</Form.Label>
-          <Form.Control
-            {...register("phone", { required: true })}
-            placeholder="089-234-567"
-          />
-        </Form.Group>
+          <Form.Group controlId="phone">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              {...register("phone", { required: true })}
+              placeholder="089-234-567"
+            />
+          </Form.Group>
 
-        <br />
+          <br />
 
-        <Row>
-          <Col md={3}>
-            <Link href="/" passHref>
-              <Button variant="outline-secondary">Go to Suppliers</Button>
-            </Link>
-          </Col>
-          <Col md={1} className="text-right">
-            <Button variant="outline-primary" type="submit">
-              Save
-            </Button>
-          </Col>
-        </Row>
+          <Button variant="outline-primary" type="submit">
+            Save
+          </Button>
 
-        <p>{data}</p>
-      </Form>
-    </Container>
+          <p>{data}</p>
+        </Form>
+      </Container>
+    </>
   );
 }
