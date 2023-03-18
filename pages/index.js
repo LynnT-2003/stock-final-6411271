@@ -1,6 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Container, Table, Button, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Table,
+  Button,
+  Row,
+  Col,
+  Navbar,
+  Nav,
+} from "react-bootstrap";
 
 export default function Home({ suppliers }) {
   function deleteSupplier(id) {
@@ -19,59 +27,62 @@ export default function Home({ suppliers }) {
       <Head>
         <title>Suppliers Management</title>
       </Head>
-      <Container>
-        <Row className="my-4">
-          <Col>
-            <h1>Suppliers List</h1>
-          </Col>
-          <Col className="text-right">
-            <Link href="/supplier">
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand>Supplier Management</Navbar.Brand>
+          <Nav className="ml-auto">
+            <Link href="/supplier" passHref>
               <Button variant="outline-primary">+ Add Supplier</Button>
             </Link>
-          </Col>
-        </Row>
-        <Table responsive>
-          <thead>
-            <tr>
-              <th style={{ width: "20rem" }}>Supplier Name</th>
-              <th style={{ width: "10rem" }}>Address</th>
-              <th style={{ width: "10rem" }}>Phone Number</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {suppliers.map((supplier) => {
-              return (
-                <tr key={supplier._id}>
-                  <td>
-                    <Link href={`/supplier/${supplier._id}`}>
-                      {supplier.name}
-                    </Link>
-                  </td>
-                  <td>{supplier.address}</td>
-                  <td>{supplier.phone}</td>
-                  <td>
-                    <>
-                      <Link href={`/supplier/update/${supplier._id}`}>
-                        <Button variant="outline-secondary" size="sm">
-                          Update
-                        </Button>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Container style={{ margin: "2rem", marginLeft: "5rem" }}>
+        <h1>Supplies</h1> <br />
+        <div className="table-container">
+          <Table responsive>
+            <thead>
+              <tr>
+                <th style={{ width: "15rem" }}>Supplier Name</th>
+                <th style={{ width: "15rem" }}>Address</th>
+                <th style={{ width: "15rem" }}>Phone Number</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {suppliers.map((supplier) => {
+                return (
+                  <tr key={supplier._id}>
+                    <td>
+                      <Link href={`/supplier/${supplier._id}`}>
+                        {supplier.name}
                       </Link>
-                      &nbsp;&nbsp;
-                      <Button
-                        variant="outline-danger"
-                        size="sm"
-                        onClick={() => deleteSupplier(supplier._id)}
-                      >
-                        Delete
-                      </Button>
-                    </>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+                    </td>
+                    <td>{supplier.address}</td>
+                    <td>{supplier.phone}</td>
+                    <td>
+                      <>
+                        <Link href={`/supplier/update/${supplier._id}`}>
+                          <Button variant="secondary" size="sm">
+                            Update
+                          </Button>
+                        </Link>
+                        &nbsp;&nbsp;
+                        <Button
+                          variant="danger"
+                          size="sm"
+                          onClick={() => deleteSupplier(supplier._id)}
+                        >
+                          Delete
+                        </Button>
+                      </>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </div>
       </Container>
     </>
   );
