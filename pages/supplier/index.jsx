@@ -18,10 +18,7 @@ export default function Home({ suppliers }) {
       <Head>
         <title>Suppliers Management</title>
       </Head>
-      <h1>suppliers</h1>
-      <p style={{ margin: "0.4rem" }}>
-        <Link href="/supplier/supplier">+New Supplier</Link>
-      </p>
+      <h1>Suppliers</h1>
       <table>
         <thead>
           <tr>
@@ -34,13 +31,13 @@ export default function Home({ suppliers }) {
           {suppliers.map((supplier) => {
             return (
               <tr key={supplier._id}>
-                <td>
+                <td style={{ textAlign: "center" }}>
                   <Link href={`/supplier/${supplier._id}`}>
-                    {supplier.supplierName}
+                    {supplier.name}
                   </Link>
                 </td>
                 <td style={{ textAlign: "center" }}>{supplier.address}</td>
-                <td style={{ textAlign: "center" }}>{supplier.phoneNumber}</td>
+                <td style={{ textAlign: "center" }}>{supplier.phone}</td>
                 <td>
                   <>
                     <Link href={`/supplier/update/${supplier._id}`}>
@@ -58,14 +55,19 @@ export default function Home({ suppliers }) {
         </tbody>
       </table>
       <hr />
-      <Link href="/">Home</Link>
+      <p style={{ margin: "0.4rem", textAlign: "left" }}>
+        <Link href="/supplier/supplier">+ Supplier</Link>
+      </p>
+
+      <Link href="/">&nbsp;&nbsp;&nbsp;&nbsp; Home</Link>
+
       <p></p>
     </>
   );
 }
 export async function getServerSideProps() {
   const res = await fetch(
-    `https://stock-final-6410381.vercel.app/api/stockFinal/supplier`
+    `https://stock-final-6411271.vercel.app/api/stockFinal/suppliers`
   );
   const suppliers = await res.json();
   return { props: { suppliers } };
