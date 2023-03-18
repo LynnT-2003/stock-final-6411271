@@ -1,38 +1,39 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Supplier Management System
 
-First, run the development server:
+A full stack web application that allows its users to manage suppliers using CRUD Operation techniques.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Pages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Suppliers List
+- Adding suppliers
+- Updating suppliers
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Functions (CRUD)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Create & Add new suppliers
+- Read suppliers from MongoDB
+- Update a supplier record
+- Delete a supplier record
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 🔗 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+https://stock-final-6411271.vercel.app)
 
-## Learn More
+## Honorable Features
 
-To learn more about Next.js, take a look at the following resources:
+- Responsive Navbars
+- Design and Styling with professional CSS
+- A friendly UI with no dead links or blank pages
+- Suppliers List sorted alphabetically
+- Supplier details saved on Atlas MongoDB
+- API endpoints all set up and ready
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Client:** HTML, CSS, React, Javascript, React-bootstrap
 
-## Deploy on Vercel
+**Server:** Node, MongoDB
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_Built using React-app and Deployed on Vercel._
