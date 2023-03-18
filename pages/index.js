@@ -64,9 +64,16 @@ export default function Home({ suppliers }) {
           </Nav>
         </Container>
       </Navbar>
-      <Container style={{ margin: "2rem", marginLeft: "5rem" }}>
-        <h1>Supplies</h1> <br />
+      <Container
+        style={{
+          margin: "2rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="table-container">
+          <h1>Suppliers</h1> <br />
           <Table responsive>
             <thead>
               <tr>
