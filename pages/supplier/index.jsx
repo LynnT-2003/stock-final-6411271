@@ -45,7 +45,7 @@ export default function AddSupplier() {
     <>
       <Navbar bg="light" expand="lg">
         <Navbar.Brand style={{ marginLeft: "7rem" }} href="/">
-          Suppliers Management
+          Supplier Management
         </Navbar.Brand>
       </Navbar>
       <Container

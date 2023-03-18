@@ -1,5 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
+import {
+  Container,
+  Table,
+  Button,
+  Row,
+  Col,
+  Navbar,
+  Nav,
+  Form,
+} from "react-bootstrap";
 
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -50,48 +60,69 @@ export default function Supplier({ supplier }) {
 
   return (
     <>
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand style={{ marginLeft: "7rem" }} href="/">
+          Supplier Management
+        </Navbar.Brand>
+      </Navbar>
       <Head>
         <title>Update {supplier.name}</title>
       </Head>
+      <Container
+        style={{ margin: "2rem", maxWidth: "50%", marginLeft: "5rem" }}
+      >
+        <Form onSubmit={handleSubmit(updateSupplier)}>
+          <Row className="mb-4">
+            <Col>
+              <h1>Update Supplier</h1>
+            </Col>
+          </Row>
+          <Form.Group controlId="name">
+            <Form.Label>Supplier Name</Form.Label>
+            <Form.Control
+              {...register("name", { required: true })}
+              placeholder="John Doe"
+            />
+          </Form.Group>
 
-      {/* <p>{JSON.stringify(supplier)}</p> */}
-      <div style={{ margin: "1rem" }}>
-        <form onSubmit={handleSubmit(updateSupplier)}>
-          <h1>Update Supplier</h1>
-          <label htmlFor="name">Supplier Name</label>
-          <br />
-          <input
-            id="name"
-            {...register("name", { required: true })}
-            placeholder="John Doe"
-          />
-          <br />
-
-          <label htmlFor="address">Address</label>
-          <br />
-          <input
-            id="address"
-            {...register("address", { required: true })}
-            placeholder="123 Main St."
-          />
           <br />
 
-          <label htmlFor="phone">Phone Number</label>
-          <br />
-          <input
-            id="phone"
-            {...register("phone", { required: true })}
-            placeholder="555-123-1234"
-          />
+          <Form.Group controlId="address">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              {...register("address", { required: true })}
+              placeholder="123 Main St."
+            />
+          </Form.Group>
+
           <br />
 
-          <input type="submit" />
+          <Form.Group controlId="phone">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              {...register("phone", { required: true })}
+              placeholder="555-123-1234"
+            />
+          </Form.Group>
+
+          <br />
+
+          <Row>
+            <Col md={3}>
+              <Link href="/" passHref>
+                <Button variant="outline-secondary">Go to Suppliers</Button>
+              </Link>
+            </Col>
+            <Col md={1} className="text-right">
+              <Button variant="outline-primary" type="submit">
+                Save
+              </Button>
+            </Col>
+          </Row>
+
           <p>{data}</p>
-          <br />
-        </form>
-      </div>
-
-      <Link href="/">Back</Link>
+        </Form>
+      </Container>
     </>
   );
 }

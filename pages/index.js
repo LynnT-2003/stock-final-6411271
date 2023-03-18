@@ -53,11 +53,7 @@ export default function Home({ suppliers }) {
               {suppliers.map((supplier) => {
                 return (
                   <tr key={supplier._id}>
-                    <td>
-                      <Link href={`/supplier/${supplier._id}`}>
-                        {supplier.name}
-                      </Link>
-                    </td>
+                    <td>{supplier.name}</td>
                     <td>{supplier.address}</td>
                     <td>{supplier.phone}</td>
                     <td>
