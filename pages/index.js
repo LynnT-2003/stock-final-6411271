@@ -26,6 +26,10 @@ export default function Home({ suppliers }) {
     return (
       <footer
         style={{
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          left: "0",
           marginTop: "2rem",
           padding: "1rem",
           backgroundColor: "#f8f9fa",
