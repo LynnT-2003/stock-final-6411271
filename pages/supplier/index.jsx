@@ -49,12 +49,7 @@ export default function AddSupplier() {
         </Navbar.Brand>
       </Navbar>
       <Container
-        style={{
-          margin: "2rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        style={{ margin: "2rem", maxWidth: "50%", marginLeft: "5rem" }}
       >
         <div className="app-container">
           <h1>New Supplier</h1> <br />
@@ -65,7 +60,7 @@ export default function AddSupplier() {
               <Form.Control
                 {...register("name", { required: true })}
                 placeholder="John Doe"
-                style={{ width: "500px" }}
+                style={{ width: "750px" }}
               />
             </Form.Group>
 
@@ -76,7 +71,7 @@ export default function AddSupplier() {
               <Form.Control
                 {...register("address", { required: true })}
                 placeholder="123 Black Clover St."
-                style={{ width: "500px" }}
+                style={{ width: "750px" }}
               />
             </Form.Group>
 
@@ -87,7 +82,7 @@ export default function AddSupplier() {
               <Form.Control
                 {...register("phone", { required: true })}
                 placeholder="089-234-567"
-                style={{ width: "500px" }}
+                style={{ width: "750px" }}
               />
             </Form.Group>
 
