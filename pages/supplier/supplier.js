@@ -68,7 +68,7 @@ export default function AddSupplier() {
         <br />
         <input
           id="phone"
-          {...register("phoneNumber", { required: true })}
+          {...register("phone", { required: true })}
           placeholder="089-234-567"
         />
         <br />
