@@ -96,12 +96,12 @@ DELETE /api/stockFinal/suppliers/${id}
 
 ## Honorable Features
 
-- Responsive Navbars
+- Responsive Navbars in every page
 - Self-explanatory friendly UI design
 - Design and Styling with professional CSS
+- API endpoints all set up and ready
 - Suppliers List sorted alphabetically
 - Supplier details saved on Atlas MongoDB
-- API endpoints all set up and ready
 
 ## Environment Variables
 
