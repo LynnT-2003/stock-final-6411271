@@ -58,6 +58,33 @@ export default function Supplier({ supplier }) {
       </div>
     );
 
+  const Footer = () => {
+    return (
+      <footer
+        style={{
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          left: "0",
+          marginTop: "2rem",
+          padding: "1rem",
+          backgroundColor: "#f8f9fa",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ color: "#6c757d" }}>
+          &copy; A Web Application Development Project from:{" "}
+          <Link
+            href="https://github.com/LynnT-2003"
+            style={{ color: "#6c757d" }}
+          >
+            Lynn Thit Nyi Nyi
+          </Link>
+        </p>
+      </footer>
+    );
+  };
+
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -114,6 +141,7 @@ export default function Supplier({ supplier }) {
           <p>{data}</p>
         </Form>
       </Container>
+      <Footer />
     </>
   );
 }
