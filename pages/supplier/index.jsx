@@ -49,51 +49,57 @@ export default function AddSupplier() {
         </Navbar.Brand>
       </Navbar>
       <Container
-        style={{ margin: "2rem", maxWidth: "50%", marginLeft: "5rem" }}
+        style={{
+          margin: "2rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        {/* <Link href="/">Suppliers</Link> */}
-        <Form onSubmit={handleSubmit(saveSupplier)}>
-          <Row className="mb-4">
-            <Col>
-              <h1>New Supplier</h1>
-            </Col>
-          </Row>
-          <Form.Group controlId="supplierName">
-            <Form.Label>Supplier Name</Form.Label>
-            <Form.Control
-              {...register("name", { required: true })}
-              placeholder="John Doe"
-            />
-          </Form.Group>
+        <div className="app-container">
+          <h1>New Supplier</h1> <br />
+          {/* <Link href="/">Suppliers</Link> */}
+          <Form onSubmit={handleSubmit(saveSupplier)}>
+            <Form.Group controlId="supplierName">
+              <Form.Label>Supplier Name</Form.Label>
+              <Form.Control
+                {...register("name", { required: true })}
+                placeholder="John Doe"
+                style={{ width: "500px" }}
+              />
+            </Form.Group>
 
-          <br />
+            <br />
 
-          <Form.Group controlId="address">
-            <Form.Label>Address</Form.Label>
-            <Form.Control
-              {...register("address", { required: true })}
-              placeholder="123 Black Clover St."
-            />
-          </Form.Group>
+            <Form.Group controlId="address">
+              <Form.Label>Address</Form.Label>
+              <Form.Control
+                {...register("address", { required: true })}
+                placeholder="123 Black Clover St."
+                style={{ width: "500px" }}
+              />
+            </Form.Group>
 
-          <br />
+            <br />
 
-          <Form.Group controlId="phone">
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control
-              {...register("phone", { required: true })}
-              placeholder="089-234-567"
-            />
-          </Form.Group>
+            <Form.Group controlId="phone">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                {...register("phone", { required: true })}
+                placeholder="089-234-567"
+                style={{ width: "500px" }}
+              />
+            </Form.Group>
 
-          <br />
+            <br />
 
-          <Button variant="outline-primary" type="submit">
-            Save
-          </Button>
+            <Button variant="outline-primary" type="submit">
+              Save
+            </Button>
 
-          <p>{data}</p>
-        </Form>
+            <p>{data}</p>
+          </Form>
+        </div>
       </Container>
     </>
   );
