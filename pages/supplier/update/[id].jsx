@@ -107,18 +107,9 @@ export default function Supplier({ supplier }) {
 
           <br />
 
-          <Row>
-            <Col md={3}>
-              <Link href="/" passHref>
-                <Button variant="outline-secondary">Go to Suppliers</Button>
-              </Link>
-            </Col>
-            <Col md={1} className="text-right">
-              <Button variant="outline-primary" type="submit">
-                Save
-              </Button>
-            </Col>
-          </Row>
+          <Button variant="outline-primary" type="submit">
+            Save
+          </Button>
 
           <p>{data}</p>
         </Form>
